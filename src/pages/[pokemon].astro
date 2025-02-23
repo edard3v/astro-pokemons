@@ -1,7 +1,7 @@
 ---
-import Layout from "@layouts/Layout/Layout.astro";
 import { get_pokemons_fetch } from "@views/Index/get_pokemons_fetch";
-import PokemonDetails from "@views/PokemonDetails/PokemonDetails.astro";
+import PokemonView from "@views/Pokemon/Pokemon.astro";
+
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
@@ -11,14 +11,14 @@ export const getStaticPaths = (async () => {
     const { name } = result;
     const img = result.sprites.other?.["official-artwork"].front_default;
     const audio = result.cries.latest;
-    return { params: { name }, props: { audio, img } };
+    return { params: { pokemon: name }, props: { audio, img } };
   });
 
   return paths;
 }) satisfies GetStaticPaths;
 
-const { name } = Astro.params;
+const { pokemon: name } = Astro.params;
 const { audio, img } = Astro.props;
 ---
 
-<PokemonDetails name={name} audio={audio} img={img!} />
+<PokemonView name={name} audio={audio} img={img!} />
