@@ -24,7 +24,7 @@ const { audio, img } = Astro.props;
   <main>
     <h1>{name}</h1>
     <picture>
-      <img src={img} alt={name} />
+      <img transition:name={`pokemon_${name}`} src={img} alt={name} />
     </picture>
     <audio controls>
       <source src={audio} type="audio/ogg" />
