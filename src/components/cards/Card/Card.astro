@@ -11,5 +11,7 @@ const { title, img } = Astro.props;
 
 <article class={css.card}>
   <h6 class={css.title}>{title}</h6>
-  <img src={img} alt={title} />
+  <a href={`/${title}/`}>
+    <img src={img} alt={title} />
+  </a>
 </article>

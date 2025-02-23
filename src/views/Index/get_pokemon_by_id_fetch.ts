@@ -1,4 +1,4 @@
-export const get_pokemon_by_id_fetch = async (id: number): Promise<GetPokemonByIdFetch> => {
+export const get_pokemon_by_id_fetch = async (id: number): Promise<GetPokemonByIdFetchRes> => {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
   if (!res.ok) throw TypeError("Algo fue mal con get_pokemons_by_id_fetch");
@@ -6,7 +6,7 @@ export const get_pokemon_by_id_fetch = async (id: number): Promise<GetPokemonByI
   return await res.json();
 };
 
-export interface GetPokemonByIdFetch {
+export interface GetPokemonByIdFetchRes {
   abilities: Ability[];
   base_experience: number;
   cries: Cries;
