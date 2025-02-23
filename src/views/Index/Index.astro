@@ -9,7 +9,6 @@ const pokemons = await get_pokemons_fetch();
 
 <Layout title="Inicio">
   <main class={css.index}>
-    <h1>Lista de pokemons</h1>
     <div class={css.wrapper_pokemons}>
       {pokemons.results.map((result) => <Card title={result.name} img={result.img as string} />)}
     </div>
