@@ -1,11 +1,11 @@
 export const ROUTER = {
   pokemons: {
-    href: (id: number) => (id == 1 ? "/" : `/${id}`),
+    href: "/", // /page
     display: "Pokemons",
   },
 
   pokemon: {
-    href: (name: string) => `/${name}`,
+    href: "/", // /name
     display: "Pokemon",
   },
 
