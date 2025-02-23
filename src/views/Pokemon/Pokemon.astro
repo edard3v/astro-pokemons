@@ -10,7 +10,12 @@ interface Props {
 const { pokemon_name, audio, img } = Astro.props;
 ---
 
-<Layout title={pokemon_name}>
+<Layout
+  title={pokemon_name}
+  description={`Mostrando información sobre el pokemon ${pokemon_name}`}
+  img={img}
+  keywords={[pokemon_name]}
+>
   <main>
     <h1>{pokemon_name}</h1>
     <picture>
