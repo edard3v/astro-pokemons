@@ -7,7 +7,7 @@ const { pokemons, favoritos } = ROUTER;
 
 <header>
   <nav>
-    <Link href={pokemons.href(1)}>{pokemons.display}</Link>
+    <Link is_paged href={pokemons.href(1)}>{pokemons.display}</Link>
     <Link href={favoritos.href}>{favoritos.display}</Link>
   </nav>
 </header>
