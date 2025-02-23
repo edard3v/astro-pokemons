@@ -1,4 +1,4 @@
-.index {
+.page {
   .wrapper_pokemons {
     display: grid;
     gap: var(--md);
