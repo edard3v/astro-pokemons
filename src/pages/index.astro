@@ -1,18 +1,12 @@
 ---
 import { get_pokemons_fetch } from "src/views/index/get_pokemons_fetch";
 import Layout from "../layouts/Layout/Layout.astro";
-import PokemonCard from "src/views/index/PokemonCard/PokemonCard.astro";
+import Card from "@components/Card/Card.astro";
 
 const pokemons = await get_pokemons_fetch();
 ---
 
 <Layout title="Inicio">
   <h1>Lista de pokemons</h1>
-  {
-    pokemons.results.map((result) => {
-      const result_id = Number(result.url.split("/").at(-2));
-
-      return <PokemonCard pokemon_id={Number(result_id)} />;
-    })
-  }
+  {pokemons.results.map((result) => <Card title={result.name} img={result.img as string} />)}
 </Layout>
