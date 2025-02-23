@@ -1,4 +1,8 @@
 .pokemon {
   display: grid;
   place-content: center;
+
+  .name {
+    text-transform: capitalize;
+  }
 }

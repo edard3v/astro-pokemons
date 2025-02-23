@@ -18,7 +18,7 @@ const { pokemon_name, audio, img } = Astro.props;
   keywords={[pokemon_name]}
 >
   <main class={css.pokemon}>
-    <h1>{pokemon_name}</h1>
+    <h1 class={css.name}>{pokemon_name}</h1>
     <picture>
       <img transition:name={`pokemon_${pokemon_name}`} src={img} alt={pokemon_name} />
     </picture>

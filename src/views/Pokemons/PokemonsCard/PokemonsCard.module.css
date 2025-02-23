@@ -5,7 +5,7 @@
   padding: var(--md);
   background-color: var(--bg-surf);
 
-  .title {
+  .name {
     text-transform: capitalize;
   }
 }
