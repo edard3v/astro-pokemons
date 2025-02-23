@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout/Layout.astro";
 import { get_pokemons_fetch } from "@views/Index/get_pokemons_fetch";
+import PokemonDetails from "@views/PokemonDetails/PokemonDetails.astro";
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
@@ -20,15 +21,4 @@ const { name } = Astro.params;
 const { audio, img } = Astro.props;
 ---
 
-<Layout title={name}>
-  <main>
-    <h1>{name}</h1>
-    <picture>
-      <img transition:name={`pokemon_${name}`} src={img} alt={name} />
-    </picture>
-    <audio controls>
-      <source src={audio} type="audio/ogg" />
-      Tu navegador no soporta el elemento de audio.
-    </audio>
-  </main>
-</Layout>
+<PokemonDetails name={name} audio={audio} img={img!} />
