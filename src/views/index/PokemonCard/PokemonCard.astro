@@ -1,0 +1,18 @@
+---
+import { get_pokemon_by_id_fetch } from "./get_pokemon_by_id_fetch";
+
+interface Props {
+  pokemon_id: number;
+}
+
+const { pokemon_id } = Astro.props;
+
+const { name, sprites } = await get_pokemon_by_id_fetch(pokemon_id);
+
+const img = sprites.other?.showdown.front_default;
+---
+
+<div>
+  <h6>{name}</h6>
+  <img src={img} alt={name} />
+</div>
