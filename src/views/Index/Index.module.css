@@ -1,6 +1,5 @@
 .index {
   display: grid;
-  gap: var(--lg);
 
   .wrapper_pokemons {
     display: grid;
