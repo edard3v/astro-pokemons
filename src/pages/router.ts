@@ -5,7 +5,7 @@ export const ROUTER = {
   },
 
   pokemon: {
-    href: "/", // /name
+    href: "/", // /pokemon_name
     display: "Pokemon",
   },
 

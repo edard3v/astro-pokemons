@@ -5,6 +5,7 @@ import { type GetPokemonsResult } from "./get_pokemons_fetch";
 import type { Page } from "astro";
 import PokemonsCard from "./PokemonsCard/PokemonsCard.astro";
 import Paged from "@components/paginations/Paged/Paged.astro";
+import { ROUTER } from "src/pages/router";
 
 interface Props {
   page: Page<GetPokemonsResult>;
@@ -13,7 +14,7 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<Layout title="Inicio">
+<Layout title={ROUTER.pokemons.display}>
   <main class={css.pokemons}>
     <div class={css.wrapper_pokemons}>
       {page.data.map((result) => <PokemonsCard pokemon={result} />)}
