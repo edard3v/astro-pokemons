@@ -13,7 +13,7 @@ export const get_pokemons_fetch = async (): Promise<GetPokemonsFetch> => {
 
   const new_pokemons_results = pokemons.results.map((result) => {
     const result_detail = pokemon_details.find((pokemon) => pokemon.name === result.name);
-    const img = result_detail?.sprites.other?.showdown.front_default;
+    const img = result_detail?.sprites.other?.["official-artwork"].front_default;
 
     return { ...result, img };
   });

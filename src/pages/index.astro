@@ -1,12 +1,5 @@
 ---
-import { get_pokemons_fetch } from "src/views/index/get_pokemons_fetch";
-import Layout from "../layouts/Layout/Layout.astro";
-import Card from "@components/Card/Card.astro";
-
-const pokemons = await get_pokemons_fetch();
+import IndexView from "@views/Index/Index.astro";
 ---
 
-<Layout title="Inicio">
-  <h1>Lista de pokemons</h1>
-  {pokemons.results.map((result) => <Card title={result.name} img={result.img as string} />)}
-</Layout>
+<IndexView />
