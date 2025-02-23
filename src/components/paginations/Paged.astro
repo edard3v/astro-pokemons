@@ -1,4 +1,5 @@
 ---
+import Btn from "@components/buttons/Btn/Btn.astro";
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"div"> {
@@ -10,8 +11,17 @@ interface Props extends HTMLAttributes<"div"> {
 const { current_page, next, prev } = Astro.props;
 ---
 
-<div>
-  <a href={prev}><button disabled={!prev}>Anterior</button></a>
+<div class="paged">
+  <a href={prev}><Btn disabled={!prev}>Anterior</Btn></a>
   <div>{current_page}</div>
-  <a href={next}><button disabled={!next}>Siguiente</button></a>
+  <a href={next}><Btn disabled={!next}>Siguiente</Btn></a>
 </div>
+
+<style>
+  .paged {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--md);
+  }
+</style>
