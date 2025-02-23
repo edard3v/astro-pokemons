@@ -1,0 +1,18 @@
+---
+import type { GetPokemonByIdFetchRes } from "../get_pokemon_by_id_fetch";
+import css from "./PokemonsCard.module.css";
+
+interface Props {
+  pokemon: GetPokemonByIdFetchRes;
+}
+
+const { pokemon } = Astro.props;
+const img = pokemon.sprites.other?.["official-artwork"].front_default;
+---
+
+<article class={css.card}>
+  <h6 class={css.name}>{pokemon.name}</h6>
+  <a href={`/${pokemon.name}/`}>
+    <img transition:name={`pokemon_${pokemon.name}`} src={img} alt={pokemon.name} />
+  </a>
+</article>
