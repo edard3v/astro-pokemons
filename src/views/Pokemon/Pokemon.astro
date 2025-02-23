@@ -2,19 +2,19 @@
 import Layout from "@layouts/Layout/Layout.astro";
 
 interface Props {
-  name: string;
+  pokemon_name: string;
   audio: string;
   img: string;
 }
 
-const { name, audio, img } = Astro.props;
+const { pokemon_name, audio, img } = Astro.props;
 ---
 
-<Layout title={name}>
+<Layout title={pokemon_name}>
   <main>
-    <h1>{name}</h1>
+    <h1>{pokemon_name}</h1>
     <picture>
-      <img transition:name={`pokemon_${name}`} src={img} alt={name} />
+      <img transition:name={`pokemon_${pokemon_name}`} src={img} alt={pokemon_name} />
     </picture>
     <audio controls>
       <source src={audio} type="audio/ogg" />

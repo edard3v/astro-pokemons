@@ -11,14 +11,14 @@ export const getStaticPaths = (async () => {
     const { name } = result;
     const img = result.sprites.other?.["official-artwork"].front_default;
     const audio = result.cries.latest;
-    return { params: { name }, props: { audio, img } };
+    return { params: { pokemon_name: name }, props: { audio, img } };
   });
 
   return paths;
 }) satisfies GetStaticPaths;
 
-const { name } = Astro.params;
+const { pokemon_name } = Astro.params;
 const { audio, img } = Astro.props;
 ---
 
-<Pokemon name={name} audio={audio} img={img!} />
+<Pokemon pokemon_name={pokemon_name} audio={audio} img={img!} />
