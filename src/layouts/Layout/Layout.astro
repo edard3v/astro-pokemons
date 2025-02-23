@@ -2,6 +2,7 @@
 import "@styles/index.css";
 import { ClientRouter } from "astro:transitions";
 import { SEO } from "./seo";
+import Header from "@components/shared/Header/Header.astro";
 
 interface Props {
   title: string;
@@ -49,13 +50,27 @@ const keywords_parsed = keywords.join(",");
     <meta name="twitter:image" content={img} />
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>
 
 <style>
+  :root {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--bg-main);
     color: var(--paras);
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    main {
+      max-width: 1920px;
+      padding: var(--lg);
+    }
   }
 </style>

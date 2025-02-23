@@ -1,4 +1,5 @@
 ---
+import css from "./Pokemon.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 
 interface Props {
@@ -16,7 +17,7 @@ const { pokemon_name, audio, img } = Astro.props;
   img={img}
   keywords={[pokemon_name]}
 >
-  <main>
+  <main class={css.pokemon}>
     <h1>{pokemon_name}</h1>
     <picture>
       <img transition:name={`pokemon_${pokemon_name}`} src={img} alt={pokemon_name} />

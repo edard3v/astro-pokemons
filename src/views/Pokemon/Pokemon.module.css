@@ -1,0 +1,4 @@
+.pokemon {
+  display: grid;
+  place-content: center;
+}

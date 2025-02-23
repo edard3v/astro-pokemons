@@ -1,0 +1,43 @@
+---
+import Link from "@components/links/Link/Link.astro";
+import { ROUTER } from "src/pages/router";
+
+const { pokemons, favoritos } = ROUTER;
+---
+
+<header>
+  <nav>
+    <Link href={pokemons.href(1)}>{pokemons.display}</Link>
+    <Link href={favoritos.href}>{favoritos.display}</Link>
+  </nav>
+</header>
+
+<style>
+  header {
+    border-bottom: var(--border);
+    min-height: 80px;
+
+    display: grid;
+    align-items: center;
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--xl);
+
+      @media (min-width: 320px) and (max-width: 767px) {
+        gap: var(--lg);
+      }
+
+      a {
+        color: inherit;
+        text-transform: capitalize;
+
+        &:hover {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+</style>

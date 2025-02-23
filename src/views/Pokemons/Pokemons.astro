@@ -3,8 +3,8 @@ import css from "./Pokemons.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 import { type GetPokemonsResult } from "./get_pokemons_fetch";
 import type { Page } from "astro";
-import Paged from "@components/paginations/Paged.astro";
 import PokemonsCard from "./PokemonsCard/PokemonsCard.astro";
+import Paged from "@components/paginations/Paged/Paged.astro";
 
 interface Props {
   page: Page<GetPokemonsResult>;
