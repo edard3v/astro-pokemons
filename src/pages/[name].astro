@@ -4,7 +4,7 @@ import { get_pokemons_fetch } from "@views/Index/get_pokemons_fetch";
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
-  const { results } = await get_pokemons_fetch({ limit: 20 });
+  const { results } = await get_pokemons_fetch({ limit: 40 });
 
   const paths = results.map((result) => {
     const { name } = result;

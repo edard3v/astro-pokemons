@@ -1,17 +1,23 @@
 ---
 import Layout from "@layouts/Layout/Layout.astro";
-import { get_pokemons_fetch } from "./get_pokemons_fetch";
+import { type GetPokemonsResult } from "./get_pokemons_fetch";
 import css from "./Index.module.css";
 import Card from "@components/cards/Card/Card.astro";
+import type { Page } from "astro";
+import Paged from "@components/paginations/Paged.astro";
 
-const pokemons = await get_pokemons_fetch();
+interface Props {
+  page: Page<GetPokemonsResult>;
+}
+
+const { page } = Astro.props;
 ---
 
 <Layout title="Inicio">
   <main class={css.index}>
     <div class={css.wrapper_pokemons}>
       {
-        pokemons.results.map((result) => (
+        page.data.map((result) => (
           <Card
             title={result.name}
             img={result.sprites.other?.["official-artwork"].front_default!}
@@ -19,6 +25,8 @@ const pokemons = await get_pokemons_fetch();
         ))
       }
     </div>
+
+    <Paged current_page={page.currentPage} prev={page.url.prev} next={page.url.next} />
   </main>
 </Layout>
 

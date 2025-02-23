@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  current_page: number;
+  prev?: string;
+  next?: string;
+}
+
+const { current_page, next, prev } = Astro.props;
+---
+
+<div>
+  <a href={prev}><button disabled={!prev}>Anterior</button></a>
+  <div>{current_page}</div>
+  <a href={next}><button disabled={!next}>Siguiente</button></a>
+</div>

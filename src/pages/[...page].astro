@@ -1,0 +1,14 @@
+---
+import type { GetStaticPaths } from "astro";
+import IndexView from "@views/Index/Index.astro";
+import { get_pokemons_fetch } from "@views/Index/get_pokemons_fetch";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const { results } = await get_pokemons_fetch({ limit: 40 });
+  return paginate(results, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<IndexView page={page} />
