@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import css from "./Pokemon.module.css";
 import Layout from "@layouts/Layout/Layout.astro";
 
@@ -18,7 +19,10 @@ const { pokemon_name, audio, img } = Astro.props;
   keywords={[pokemon_name]}
 >
   <main class={css.pokemon}>
-    <h1 class={css.name}>{pokemon_name}</h1>
+    <div class={css.wrapper_1}>
+      <h1 class={css.name}>{pokemon_name}</h1>
+      <Icon class={css.heart} name={"heart_empty"} size={50} />
+    </div>
     <picture>
       <img transition:name={`pokemon_${pokemon_name}`} src={img} alt={pokemon_name} />
     </picture>

@@ -12,6 +12,7 @@ const img = pokemon.sprites.other?.["official-artwork"].front_default;
 
 <article class={css.card}>
   <h6 class={css.name}>{pokemon.name}</h6>
+
   <a href={`/${pokemon.name}/`}>
     <img transition:name={`pokemon_${pokemon.name}`} src={img} alt={pokemon.name} />
   </a>
