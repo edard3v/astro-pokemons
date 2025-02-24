@@ -1,6 +1,7 @@
 .pokemon {
   display: grid;
   place-content: center;
+  justify-items: center;
   .wrapper_1 {
     display: flex;
     gap: var(--md);
@@ -8,8 +9,14 @@
     .name {
       text-transform: capitalize;
     }
-    .heart {
+    .wrapper_hearts {
       color: var(--red);
+      background-color: transparent;
+
+      .heart_empty {
+      }
+      .heart_full {
+      }
     }
   }
 }

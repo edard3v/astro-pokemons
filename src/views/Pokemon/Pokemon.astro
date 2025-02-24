@@ -21,7 +21,22 @@ const { pokemon_name, audio, img } = Astro.props;
   <main class={css.pokemon}>
     <div class={css.wrapper_1}>
       <h1 class={css.name}>{pokemon_name}</h1>
-      <Icon class={css.heart} name={"heart_empty"} size={50} />
+      <button id="wrapper_hearts" class={css.wrapper_hearts} data-pokemon_name={pokemon_name}>
+        <Icon
+          id={"heart_empty"}
+          class:list={[css.heart_empty]}
+          name={"heart_empty"}
+          size={50}
+          data-pokemon_name={pokemon_name}
+        />
+        <Icon
+          id={"heart_full"}
+          class:list={[css.heart_full, "no_visible"]}
+          name={"heart_full"}
+          size={50}
+          data-pokemon_name={pokemon_name}
+        />
+      </button>
     </div>
     <picture>
       <img transition:name={`pokemon_${pokemon_name}`} src={img} alt={pokemon_name} />
@@ -32,3 +47,21 @@ const { pokemon_name, audio, img } = Astro.props;
     </audio>
   </main>
 </Layout>
+
+<script>
+  import { Dom } from "@utils/Dom/Dom";
+
+  document.addEventListener("astro:page-load", () => {
+    const wrapper_hearts = Dom.select("wrapper_hearts");
+    const heart_empty = Dom.select("heart_empty");
+    const heart_full = Dom.select("heart_full");
+
+    wrapper_hearts?.addEventListener("click", () => {
+      heart_empty?.classList.toggle("no_visible");
+      heart_full?.classList.toggle("no_visible");
+
+      const pokemon_name = wrapper_hearts.dataset.pokemon_name;
+      console.log(pokemon_name);
+    });
+  });
+</script>
